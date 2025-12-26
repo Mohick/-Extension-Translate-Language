@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 15px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .radio-option:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(5px);
+    }
+
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      cursor: pointer;
+      accent-color: white;
+    }
+
+    .radio-label {
+      font-size: 14px;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .instruction {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 15px;
+      font-size: 13px;
+      line-height: 1.6;
+      backdrop-filter: blur(10px);
+    }
+
+    .instruction-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .instruction ul {
+      padding-left: 20px;
+    }
+
+    .instruction li {
+      margin-bottom: 6px;
+    }
+
+    .status {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 15px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .status.show {
+      opacity: 1;
+    }
+
+    .emoji {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔊 Text Reader</h1>
+  <p class="subtitle">Đọc & Dịch văn bản</p>
+
+  <div class="section">
+    <div class="section-title">
+      <span class="emoji">⚙️</span>
+      <span>Chế độ đọc</span>
+    </div>
+    <div class="radio-group">
+      <label class="radio-option">
+        <input type="radio" name="mode" value="vietnamese" id="mode-vietnamese">
+        <span class="radio-label">
+          <strong>Tiếng Việt</strong><br>
+          <small>Đọc tiếng Việt / Dịch EN→VI rồi đọc</small>
+        </span>
+      </label>
+      <label class="radio-option">
+        <input type="radio" name="mode" value="english" id="mode-english">
+        <span class="radio-label">
+          <strong>Tiếng Anh</strong><br>
+          <small>Đọc tiếng Anh / Dịch VI→EN rồi đọc</small>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="instruction">
+    <div class="instruction-title">
+      <span class="emoji">📖</span>
+      <span>Cách sử dụng</span>
+    </div>
+    <ul>
+      <li>Quét chọn văn bản bất kỳ</li>
+      <li>Nhấn <strong>Shift + R</strong></li>
+      <li>Extension sẽ tự động đọc hoặc dịch</li>
+      <li>Nhấn lại <strong>Shift + R</strong> để dừng</li>
+    </ul>
+  </div>
+
+  <div class="status" id="status">✅ Đã lưu cài đặt!</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
